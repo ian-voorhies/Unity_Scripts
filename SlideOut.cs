@@ -1,6 +1,6 @@
 using UnityEngine;
 public class SlideOut:MonoBehaviour{
-	  public bool enable=true,auto=true,destroy=true;
+    public bool enable=true,auto=true,destroy=true;
     public xDir xDirection=xDir.Left;
     public enum xDir{Left,Right,Center}
     public yDir yDirection=yDir.Center;
@@ -9,8 +9,8 @@ public class SlideOut:MonoBehaviour{
     private Vector3 goal,pos;
     private bool started=false,delayed=true,paused=false,xDone=false,yDone=false;
     private float time=0.0f;
-	  public void Start(){if(auto)go();}
-	  public void Update(){if(started&&!delaying()&&!isPaused())onUpdate();}
+    public void Start(){if(auto)go();}
+    public void Update(){if(started&&!delaying()&&!isPaused())onUpdate();}
     public void go(){
         if(!enable)return;
         if(delay>0)delayed=false;
@@ -31,7 +31,7 @@ public class SlideOut:MonoBehaviour{
         pos=transform.position;
         started=true;
     }
-	  private void onUpdate(){
+    private void onUpdate(){
         if(isDone()){
             if(destroy)Destroy(gameObject);
             return;
@@ -69,7 +69,7 @@ public class SlideOut:MonoBehaviour{
             }
         }
         transform.position=pos;
-	  }
+    }
     public void pause(){paused=true;}
     public void unpause(){paused=false;}
     public bool isPaused(){return paused;}
