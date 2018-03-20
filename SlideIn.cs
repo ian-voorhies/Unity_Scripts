@@ -9,11 +9,11 @@ public class SlideIn:MonoBehaviour{
     private Vector3 start,pos;
     private float time=0.0f;
     private bool started=false,delayed=true,paused=false,xDone=false,yDone=false;
-	  private void Start(){if(auto)go();}
-	  private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
+    private void Start(){if(auto)go();}
+    private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
     private void onGo(){
         Vector3 size=GetComponent<Collider2D>().bounds.size;
-	    start=transform.position;
+	start=transform.position;
         float dist=(start-Camera.main.transform.position).z;
         float x=start.x,y=start.y;
         if(xDirection==xDir.Left)x=(Camera.main.ViewportToWorldPoint(new Vector3(0,0,dist)).x)-size.x;
@@ -26,7 +26,7 @@ public class SlideIn:MonoBehaviour{
         transform.position=pos;
         started=true;
     }
-	  void onUpdate(){
+    void onUpdate(){
         if(!xDone){
             if(xDirection==xDir.Left){
                 if(pos.x<start.x)pos.x+=speed*Time.deltaTime;
@@ -60,7 +60,7 @@ public class SlideIn:MonoBehaviour{
             }
         }
         transform.position=pos;
-	  }
+    }
     public void go(){
         if(!enable)return;
         if(delay>0)delayed=false;
