@@ -12,8 +12,8 @@ public class FadeOut:MonoBehaviour{
     private Color color;
     private float alpha=1.0f,time=0.0f;
     private bool started=false,delayed=true,paused=false,done=false;
-	  private void Start(){if(auto)go();}
-	  private void Update(){if(started&&!delaying()&&!isPaused())onUpdate();}
+    private void Start(){if(auto)go();}
+    private void Update(){if(started&&!delaying()&&!isPaused())onUpdate();}
     public void onGo(){
         switch(renderMode){
             case type.Image:
