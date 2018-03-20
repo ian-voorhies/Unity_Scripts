@@ -6,9 +6,9 @@ public class Rotater:MonoBehaviour{
     private float time=0.0f;
     void Start(){if(auto)go();}
     void Update(){
-		    if(!enable)return;
-		    if(!delaying()&&!isPaused())onUpdate();
-	  }
+	if(!enable)return;
+	if(!delaying()&&!isPaused())onUpdate();
+    }
     public void go(){
         if(!enable)return;
         if(delay>0)delayed=false;
