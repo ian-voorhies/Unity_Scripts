@@ -7,8 +7,8 @@ public class Shrink:MonoBehaviour{
     private Vector3 scale;
     private float min=0.0f,time=0.0f;
     private bool started=false,delayed=true,paused=false,xDone=false,yDone=false;
-	  private void Start(){if(auto)go();}
-	  private void Update(){if(started&&!delaying()&&!isPaused())onUpdate();}
+    private void Start(){if(auto)go();}
+    private void Update(){if(started&&!delaying()&&!isPaused())onUpdate();}
     private void onGo(){
         if(!enable)return;
         if(delay>0)delayed=false;
@@ -17,7 +17,7 @@ public class Shrink:MonoBehaviour{
         else if(Direction==dir.Vertical)xDone=true;
         started=true;
     }
-	  private void onUpdate(){
+    private void onUpdate(){
         if(isDone()){
             if(destroy)Destroy(gameObject);
             return;
@@ -37,7 +37,7 @@ public class Shrink:MonoBehaviour{
             }
         }
         transform.localScale=scale;
-	  }
+    }
     public void go(){
         if(!enable)return;
         if(delay>0)delayed=false;
