@@ -13,8 +13,8 @@ public class Rainbow:MonoBehaviour{
     private byte currentColor=0;
     private float upper=1.0f,lower=0.0f,red=1.0f,green=0.0f,blue=0.0f,time=0.0f;
     private bool started=false,delayed=true,paused=false,done=false,infinite=true;
-	  private void Start(){if(auto)go();}
-	  private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
+    private void Start(){if(auto)go();}
+    private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
     private void onGo(){
         if(duration>0)infinite=false;
         switch(renderMode){
@@ -38,7 +38,7 @@ public class Rainbow:MonoBehaviour{
         color=new Color(red,green,blue,alpha);
         started=true;
     }
-	  private void onUpdate(){
+    private void onUpdate(){
         if(!started||paused||delaying()||done)return;
         if(!infinite){
             time+=Time.deltaTime;
@@ -96,7 +96,7 @@ public class Rainbow:MonoBehaviour{
                 blue-=Time.deltaTime*speed;
                 break;
         }
-	  }
+    }
     private void setColor(Color newColor){
         switch(renderMode){
             case type.Image:if(image!=null)image.color=newColor;break;
