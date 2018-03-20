@@ -14,8 +14,8 @@ public class TextWave:MonoBehaviour{
     private int frame=0;
     private float time=0.0f,frameTime=0.0f;
     private bool started=false,delayed=true,paused=false,done=false,infinite=true;
-	  private void Start(){if(auto)go();}
-	  private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
+    private void Start(){if(auto)go();}
+    private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
     private void onGo(){
         if(duration>0)infinite=false;
         switch(renderMode){
@@ -32,7 +32,7 @@ public class TextWave:MonoBehaviour{
         started=true;
         if(Direction==dir.Left){frame=startText.Length-1;}
     }
-	  private void onUpdate(){
+    private void onUpdate(){
         if(!infinite){
             time+=Time.deltaTime;
             if(time>=duration){
@@ -41,7 +41,7 @@ public class TextWave:MonoBehaviour{
                 return;
             }
         }
-	    if(frameTime<frameRate)frameTime+=Time.deltaTime;
+	if(frameTime<frameRate)frameTime+=Time.deltaTime;
         else{
             frameTime=0.0f;
             if(Direction==dir.Right){
@@ -62,7 +62,7 @@ public class TextWave:MonoBehaviour{
             }
         }
         setText(startText.Insert(frame+1,closecolor).Insert(frame,opencolor));
-	  }
+    }
     private void setText(string newText){
         switch(renderMode){
             case type.Text:if(text!=null)text.text=newText;break;
