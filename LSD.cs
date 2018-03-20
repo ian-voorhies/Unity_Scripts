@@ -14,8 +14,8 @@ public class LSD:MonoBehaviour{
     private int index=0;
     private float time=0.0f;
     private bool started=false,delayed=true,paused=false,done=false,infinite=true;
-	  private void Start(){if(auto)go();}
-	  private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
+    private void Start(){if(auto)go();}
+    private void Update(){if(started&&!delaying()&&!isPaused()&&!isDone())onUpdate();}
     private void onGo(){
         if(duration>0)infinite=false;
         switch(renderMode){
@@ -39,7 +39,7 @@ public class LSD:MonoBehaviour{
         color=new Color(startColor.r,startColor.g,startColor.b,alpha);
         started=true;
     }
-	  private void onUpdate(){
+    private void onUpdate(){
         if(!infinite){
             time+=Time.deltaTime;
             if(time>=duration){
@@ -53,7 +53,7 @@ public class LSD:MonoBehaviour{
         setColor(color);
         if(index>=colors.Length-1)index=0;
         else index++;
-	  }
+    }
     private void setColor(Color newColor){
         switch(renderMode){
             case type.Image:if(image!=null)image.color=newColor;break;
